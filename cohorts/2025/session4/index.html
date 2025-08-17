@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+        <style>
+            .blackColor {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body id="pageBody" class="blackColor">
+        <button>Switch on!</button>
+    </body>
+    <script>
+        document.getElementById("pageBody").addEventListener("click", function(event) {
+            console.log("You clicked:", event.target);
+        });
+        
+        function switchOn () {
+            let myPage= document.getElementById('pageBody');
+            myPage.classList.toggle("blackColor");
+        }
+    </script>
+</html>

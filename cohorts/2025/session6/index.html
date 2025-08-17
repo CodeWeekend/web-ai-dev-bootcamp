@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>React Without Node</title>
+  <!-- React and ReactDOM: core libraries loaded from a CDN for quick demos -->
+  <!-- In production, use the production builds and a bundler like Vite/webpack -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel compiles JSX in the browser. This is great for learning, not for production. -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- Root DOM node where the React app will be mounted -->
+  <div id="root"></div>
+
+  <!-- React app code (written with JSX), compiled by Babel at runtime -->
+  <script type="text/babel">
+    // This example shows: Components, Props, State, Events, Lists, and Controlled Inputs
+
+    // Counter: demonstrates component state (useState) and event handling
+    function Counter() {
+      const [count, setCount] = React.useState(0);
+
+      return (
+        <div style={{ textAlign: 'center', margin: '20px' }}>
+          <h2>Simple Counter</h2>
+          <p>Count: {count}</p>
+          {/* Button clicks update state via setCount */}
+          <button onClick={() => setCount(count + 1)}>
+            Increment
+          </button>
+          <button onClick={() => setCount(count - 1)} style={{ marginLeft: '10px' }}>
+            Decrement
+          </button>
+          <button onClick={() => setCount(0)} style={{ marginLeft: '10px' }}>
+            Reset
+          </button>
+        </div>
+      );
+    }
+
+    // Greeting: demonstrates passing data into a component via props
+    function Greeting({ name }) {
+      return <h3>Hello, {name}! Welcome to React!</h3>;
+    }
+
+    // App: the main component that composes the smaller components
+    function App() {
+      return (
+        <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
+          <h1 style={{ textAlign: 'center', color: '#333' }}>
+            React Beginner Examples
+          </h1>
+          
+          {/* Demonstrates passing a prop to a child component */}
+          <div style={{ borderBottom: '1px solid #ccc', paddingBottom: '20px' }}>
+            <Greeting name="Christina Silva" />
+          </div>
+          
+          {/* Demonstrates state and event handling */}
+          <Counter />
+        
+          
+          {/* Educational notes describing the concepts in this page */}
+          <div style={{ marginTop: '30px', padding: '15px', backgroundColor: '#f0f8ff', borderRadius: '5px' }}>
+            <h3>What you're seeing:</h3>
+            <ul>
+              <li><strong>Components:</strong> Reusable pieces of UI (Greeting, Counter)</li>
+              <li><strong>Props:</strong> Data passed to components (name prop in Greeting)</li>
+              <li><strong>Events:</strong> Handling user interactions (button clicks, input changes)</li>
+            </ul>
+          </div>
+        </div>
+      );
+    }
+
+    // Mount the React app into the #root element
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Session 2 - CW</title>
+        <style>
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                background-color: black;
+                color: white;
+                padding: 15px;
+                border-radius: 5px;
+                flex-wrap: wrap;
+            }
+            
+            .logo_item {
+                padding: 5px;
+            }
+
+            @media (min-width:766px) {
+                .nav {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo">Logo</div>
+            <div>
+                <span class="logo_item">Home</span>
+                <span class="logo_item">About us</span>
+                <span class="logo_item">Contact us</span>
+            </div>
+        </nav>
+    </body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>HTML Basics, CSS Units, Colors, and Positioning Guide</h1>
+    
+    <!-- HTML BASICS SECTION -->
+    <div class="section">
+        <h2>🌐 HTML Fundamentals for Beginners</h2>
+        <p>HTML (HyperText Markup Language) is the foundation of web pages. Let's explore the basics!</p>
+        
+        <h3>Basic HTML Document Structure</h3>
+        <div class="html-structure">
+            <pre><span class="html-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="html-tag">&lt;html <span class="html-attribute">lang="en"</span>&gt;</span>
+<span class="html-tag">&lt;head&gt;</span>
+    <span class="html-tag">&lt;meta <span class="html-attribute">charset="UTF-8"</span>&gt;</span>
+    <span class="html-tag">&lt;meta <span class="html-attribute">name="viewport" content="width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span><span class="html-content">Your Page Title</span><span class="html-tag">&lt;/title&gt;</span>
+<span class="html-tag">&lt;/head&gt;</span>
+<span class="html-tag">&lt;body&gt;</span>
+    <span class="html-content">Your content goes here!</span>
+<span class="html-tag">&lt;/body&gt;</span>
+<span class="html-tag">&lt;/html&gt;</span></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>📝 HTML Elements and Text Formatting</h3>
+        <div class="html-examples">
+            <h1>This is an H1 Heading (Most Important)</h1>
+            <h2>This is an H2 Heading</h2>
+            <h3>This is an H3 Heading</h3>
+            
+            <p>This is a paragraph. HTML paragraphs are defined with the <code>&lt;p&gt;</code> tag. 
+            You can make text <strong>bold with &lt;strong&gt;</strong>, <em>italic with &lt;em&gt;</em>, 
+            or <mark>highlighted with &lt;mark&gt;</mark>.</p>
+            
+            <p>You can also use <small>small text</small>, <del>deleted text</del>, 
+            <ins>inserted text</ins>, and <code>inline code</code>.</p>
+            
+            <blockquote>
+                "This is a blockquote. It's used for longer quotes and stands out from regular text."
+            </blockquote>
+            
+            <h3>Lists</h3>
+            <h4>Unordered List (Bullets):</h4>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+            
+            <h4>Ordered List (Numbers):</h4>
+            <ol>
+                <li>Step one</li>
+                <li>Step two</li>
+                <li>Step three</li>
+            </ol>
+            
+            <h3>Code Examples</h3>
+            <p>For inline code, use: <code>console.log("Hello World");</code></p>
+            <p>For code blocks, use:</p>
+            <pre>function greet(name) {
+    return "Hello, " + name + "!";
+}</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🔗 Links and Images</h3>
+        <div class="attributes-demo">
+            <h4>Links:</h4>
+            <a href="https://www.example.com" target="_blank">External Link (opens in new tab)</a>
+            <a href="#html-forms">Internal Link (to section below)</a>
+            <a href="mailto:someone@example.com">Email Link</a>
+            
+            <h4>Images:</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%234CAF50'/%3E%3Ctext x='50' y='35' text-anchor='middle' fill='white' font-family='Arial' font-size='12'%3EIMAGE%3C/text%3E%3C/svg%3E" alt="Sample image placeholder" title="This is a tooltip!">
+            <p><small>Images should always have an 'alt' attribute for accessibility!</small></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 id="html-forms">📋 HTML Forms</h3>
+        <div class="form-example">
+            <form>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your message here..."></textarea>
+                
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="">Choose a country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                </select>
+                
+                <div>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Subscribe to newsletter</label>
+                </div>
+                
+                <div>
+                    <label>Preferred Contact:</label>
+                    <input type="radio" id="contact-email" name="contact" value="email">
+                    <label for="contact-email">Email</label>
+                    
+                    <input type="radio" id="contact-phone" name="contact" value="phone">
+                    <label for="contact-phone">Phone</label>
+                </div>
+                
+                <button type="submit">Submit Form</button>
+                <button type="reset">Reset Form</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>📊 HTML Tables</h3>
+        <div class="table-example">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Experience</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Johnson</td>
+                        <td>Frontend Developer</td>
+                        <td>3 years</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Smith</td>
+                        <td>Backend Developer</td>
+                        <td>5 years</td>
+                        <td>London</td>
+                    </tr>
+                    <tr>
+                        <td>Carol Brown</td>
+                        <td>Full Stack Developer</td>
+                        <td>7 years</td>
+                        <td>Toronto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🏗️ Semantic HTML5 Elements</h3>
+        <p>Semantic elements provide meaning to your content, improving accessibility and SEO.</p>
+        <div class="semantic-example">
+            <header class="semantic-header">
+                &lt;header&gt; - Page or section header
+            </header>
+            <nav class="semantic-nav">
+                &lt;nav&gt; - Navigation menu: 
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <main class="semantic-main">
+                <article class="semantic-article">
+                    <h4>&lt;article&gt; - Standalone content</h4>
+                    <p>This represents a complete, self-contained piece of content.</p>
+                </article>
+                <section>
+                    <h4>&lt;section&gt; - Thematic grouping</h4>
+                    <p>This represents a section of related content.</p>
+                </section>
+                <aside class="semantic-aside">
+                    <strong>&lt;aside&gt;</strong> - Sidebar or supplementary content
+                </aside>
+            </main>
+            <footer class="semantic-footer">
+                &lt;footer&gt; - Page or section footer
+            </footer>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>⚡ HTML Best Practices</h3>
+        <div class="html-examples">
+            <h4>Essential Tips:</h4>
+            <ul>
+                <li><strong>Always use DOCTYPE:</strong> <code>&lt;!DOCTYPE html&gt;</code> at the top</li>
+                <li><strong>Set language:</strong> <code>&lt;html lang="en"&gt;</code> for accessibility</li>
+                <li><strong>Use semantic elements:</strong> <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> instead of generic <code>&lt;div&gt;</code></li>
+                <li><strong>Add alt text to images:</strong> Essential for screen readers</li>
+                <li><strong>Use proper headings:</strong> H1 → H2 → H3 in hierarchical order</li>
+                <li><strong>Validate your HTML:</strong> Use tools like W3C Markup Validator</li>
+                <li><strong>Keep it clean:</strong> Indent properly and use meaningful names for IDs and classes</li>
+            </ul>
+            
+            <h4>Common HTML Attributes:</h4>
+            <ul>
+                <li><code>id</code> - Unique identifier for an element</li>
+                <li><code>class</code> - CSS class name(s) for styling</li>
+                <li><code>href</code> - URL for links</li>
+                <li><code>src</code> - Source URL for images, scripts, etc.</li>
+                <li><code>alt</code> - Alternative text for images</li>
+                <li><code>title</code> - Tooltip text</li>
+                <li><code>target</code> - Where to open links (_blank, _self)</li>
+                <li><code>placeholder</code> - Hint text for form inputs</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CSS FOUNDATIONS SECTION -->
+    <div class="section">
+        <h2>🎨 CSS Foundations</h2>
+        <p>Now let's dive into CSS (Cascading Style Sheets) - the language that makes websites beautiful!</p>
+        
+        <h3>CSS Syntax Structure</h3>
+        <div class="css-syntax">
+            <pre><span class="css-comment">/* CSS Rule Structure */</span>
+<span class="css-selector">selector</span> {
+    <span class="css-property">property</span>: <span class="css-value">value</span>;
+    <span class="css-property">another-property</span>: <span class="css-value">another-value</span>;
+}
+
+<span class="css-comment">/* Examples */</span>
+<span class="css-selector">h1</span> {
+    <span class="css-property">color</span>: <span class="css-value">blue</span>;
+    <span class="css-property">font-size</span>: <span class="css-value">24px</span>;
+}
+
+<span class="css-selector">.my-class</span> {
+    <span class="css-property">background-color</span>: <span class="css-value">#f0f0f0</span>;
+    <span class="css-property">padding</span>: <span class="css-value">20px</span>;
+}
+
+<span class="css-selector">#my-id</span> {
+    <span class="css-property">width</span>: <span class="css-value">100%</span>;
+    <span class="css-property">text-align</span>: <span class="css-value">center</span>;
+}</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🎯 CSS Selectors</h3>
+        <p>Selectors tell CSS which HTML elements to style. Here are the main types:</p>
+        
+        <div class="selector-demo">
+            <h4>Element Selector (targets all elements of that type)</h4>
+            <p>This paragraph is styled by the element selector: p { }</p>
+            
+            <h4>Class Selector (targets elements with specific class)</h4>
+            <div class="example-box">
+                <span class="highlight">This uses .highlight class</span>
+                <div class="warning">This uses .warning class</div>
+                <div class="success">This uses .success class</div>
+            </div>
+            
+            <h4>ID Selector (targets unique element with specific ID)</h4>
+            <div id="unique-element">This uses #unique-element ID selector</div>
+            
+            <h4>Attribute Selectors</h4>
+            <div class="example-box">
+                <input type="text" placeholder="Text input (styled by attribute selector)">
+                <br><br>
+                <a href="https://example.com">HTTPS link (green styling)</a>
+                <a href="document.pdf">PDF link (red styling)</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>✨ Pseudo-classes and Interactive States</h3>
+        <div class="pseudo-demo">
+            <h4>Hover and Active States:</h4>
+            <button>Hover over me!</button>
+            <button>Click and hold me!</button>
+            
+            <h4>Focus State:</h4>
+            <input type="text" placeholder="Click to focus me">
+            
+            <h4>Nth-child Selector:</h4>
+            <ul>
+                <li>First item (odd - gray background)</li>
+                <li>Second item (even - light background)</li>
+                <li>Third item (odd - gray background)</li>
+                <li>Fourth item (even - light background)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>📦 The CSS Box Model</h3>
+        <p>Every HTML element is a rectangular box with four areas: content, padding, border, and margin.</p>
+        
+        <div class="box-model-demo">
+            <div class="box-model-visual">
+                <div>This is the content area</div>
+            </div>
+            
+            <div class="box-model-labels">
+                <div class="box-label margin-label">Margin<br>20px</div>
+                <div class="box-label border-label">Border<br>20px</div>
+                <div class="box-label padding-label">Padding<br>30px</div>
+                <div class="box-label content-label">Content<br>Text & Images</div>
+            </div>
+            
+            <p><strong>Box Model Properties:</strong></p>
+            <ul>
+                <li><code>margin</code> - Space outside the element (transparent)</li>
+                <li><code>border</code> - Border around the element (visible line)</li>
+                <li><code>padding</code> - Space between content and border (inherits background)</li>
+                <li><code>content</code> - The actual content (text, images, etc.)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>📝 CSS Typography</h3>
+        <div class="typography-demo">
+            <h4>Font Families:</h4>
+            <div class="font-family-demo">
+                <div class="serif-font">
+                    <strong>Serif Font</strong><br>
+                    Times New Roman - Good for printed text, traditional feel
+                </div>
+                <div class="sans-serif-font">
+                    <strong>Sans-serif Font</strong><br>
+                    Arial - Clean, modern, great for screens
+                </div>
+            </div>
+            <div class="monospace-font">
+                <strong>Monospace Font</strong><br>
+                Courier New - Fixed-width, perfect for code
+            </div>
+            
+            <h4>Text Styling Options:</h4>
+            <div class="text-styling">
+                <p class="large-text">Large text (24px)</p>
+                <p class="small-text">Small text (12px)</p>
+                <p class="bold-text">Bold text</p>
+                <p class="italic-text">Italic text</p>
+                <p class="underline-text">Underlined text</p>
+                <p class="center-text">Centered text</p>
+                <p class="uppercase-text">Uppercase text</p>
+                <p class="letter-spacing">Letter spacing text</p>
+                <p class="line-height">This text has increased line height, making it easier to read by adding more space between lines.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>🖼️ CSS Display Property</h3>
+        <div class="display-demo">
+            <h4>Block Elements:</h4>
+            <p>Take up full width available, start on new line:</p>
+            <div class="block-example">Block Element 1</div>
+            <div class="block-example">Block Element 2</div>
+            
+            <h4>Inline Elements:</h4>
+            <p>Flow with text, only take up necessary width:</p>
+            <span class="inline-example">Inline 1</span>
+            <span class="inline-example">Inline 2</span>
+            <span class="inline-example">Inline 3</span>
+            
+            <h4>Inline-block Elements:</h4>
+            <p>Behave like inline but can have width/height:</p>
+            <div class="inline-block-example">Inline-block 1</div>
+            <div class="inline-block-example">Inline-block 2</div>
+            
+            <p><strong>Display values:</strong></p>
+            <ul>
+                <li><code>block</code> - Full width, starts new line (div, h1, p)</li>
+                <li><code>inline</code> - Only necessary width, flows with text (span, a, strong)</li>
+                <li><code>inline-block</code> - Inline flow but can have dimensions</li>
+                <li><code>none</code> - Element is completely hidden</li>
+                <li><code>flex</code> - Flexible box layout (modern layout method)</li>
+                <li><code>grid</code> - Grid layout (modern 2D layout method)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>⚡ CSS Cascade and Specificity</h3>
+        <div class="specificity-demo">
+            <p>Understanding how CSS rules are applied when multiple selectors target the same element:</p>
+            
+            <p class="specificity-example">Element selector: Gray background, gray text</p>
+            <p class="specificity-example class-style">Class selector wins: Blue background, blue text</p>
+            <p class="specificity-example class-style" id="id-style">ID selector wins: Red background, red text</p>
+            
+            <p><strong>Specificity hierarchy (highest to lowest):</strong></p>
+            <ol>
+                <li><strong>Inline styles</strong> (style="...") - Specificity: 1000</li>
+                <li><strong>IDs</strong> (#myId) - Specificity: 100</li>
+                <li><strong>Classes</strong> (.myClass), attributes, pseudo-classes - Specificity: 10</li>
+                <li><strong>Elements</strong> (h1, p, div) - Specificity: 1</li>
+            </ol>
+            
+            <p><strong>Important CSS concepts:</strong></p>
+            <ul>
+                <li><strong>Cascade:</strong> When multiple rules apply, the last one wins (if same specificity)</li>
+                <li><strong>Inheritance:</strong> Some properties are inherited from parent elements</li>
+                <li><strong>!important:</strong> Overrides specificity (use sparingly!)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CSS UNITS, COLORS, AND POSITIONING START HERE -->
+    <div class="section">
+        <h2>📏 CSS Units, Colors, and Positioning</h2>
+        <p>Now let's explore specific CSS properties in detail!</p>
+    </div>
+    
+    <div class="section">
+        <h3>%: Percentage relative to parent element</h3>
+        <p>The child element is 50% width and 75% height of its parent container.</p>
+        <div class="parent-container">
+            <div class="percentage-child">
+                50% × 75% of parent
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>em: Relative to the font-size of the element</h3>
+        <p>1em equals the font-size of the current element. Padding and borders scale with font-size.</p>
+        <div class="em-example">
+            Font-size: 18px, Padding: 1em (18px)
+            <div class="em-nested">
+                Nested: 2em font-size (36px), 0.5em padding (18px)
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>rem: Relative to the font-size of the root (&lt;html&gt;) element</h3>
+        <p>1rem equals the root font-size (16px). Always consistent regardless of nesting.</p>
+        <div class="rem-example">
+            Font-size: 1.5rem (24px), Padding: 1rem (16px), Margin: 2rem (32px)
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>vw, vh: Relative to viewport width/height</h3>
+        <p>vw = 1% of viewport width, vh = 1% of viewport height. Resize your browser to see the effect!</p>
+        <div class="viewport-example">
+            50vw × 20vh (resize browser to see effect)
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Named Colors</h3>
+        <p>CSS provides 147 named colors like red, blue, green, etc. Easy to remember and use!</p>
+        <div class="named-color-example">
+            Background: red, Border: blue, Text: white
+        </div>
+        <div class="named-colors-grid">
+            <div class="color-box color-red">red</div>
+            <div class="color-box color-blue">blue</div>
+            <div class="color-box color-green">green</div>
+            <div class="color-box color-orange">orange</div>
+            <div class="color-box color-purple">purple</div>
+            <div class="color-box color-navy">navy</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Hex Colors (#rrggbb)</h3>
+        <p>Hexadecimal colors use # followed by 6 digits (00-FF for red, green, blue). Most common format!</p>
+        <div class="hex-color-example">
+            Background: #ff6b35, Border: #2ecc71, Text: #ffffff
+        </div>
+        <div class="hex-colors-grid">
+            <div class="color-box hex-red">#e74c3c</div>
+            <div class="color-box hex-blue">#3498db</div>
+            <div class="color-box hex-green">#2ecc71</div>
+            <div class="color-box hex-yellow">#f1c40f</div>
+            <div class="color-box hex-purple">#9b59b6</div>
+            <div class="color-box hex-dark">#34495e</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>RGB Colors</h3>
+        <p>RGB uses rgb(red, green, blue) with values 0-255. Great for programmatic color generation!</p>
+        <div class="rgb-color-example">
+            Background: rgb(255, 99, 71), Border: rgb(0, 128, 0)
+        </div>
+        <div class="rgb-colors-grid">
+            <div class="color-box rgb-red">rgb(231, 76, 60)</div>
+            <div class="color-box rgb-blue">rgb(52, 152, 219)</div>
+            <div class="color-box rgb-green">rgb(46, 204, 113)</div>
+            <div class="color-box rgb-yellow">rgb(241, 196, 15)</div>
+            <div class="color-box rgb-purple">rgb(155, 89, 182)</div>
+            <div class="color-box rgb-gray">rgb(127, 140, 141)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>RGBA Colors (with transparency)</h3>
+        <p>RGBA adds an alpha channel (0-1) for transparency. Perfect for overlays and effects!</p>
+        <div class="rgba-example">
+            Background: rgba(255, 0, 0, 0.5) - 50% transparent red
+        </div>
+        <div class="rgba-overlay">
+            <div class="rgba-overlay-text">
+                Orange background with rgba(0, 0, 0, 0.5) black overlay
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>HSL Colors</h3>
+        <p>HSL uses hsl(hue, saturation%, lightness%). Hue is 0-360°, intuitive for color theory!</p>
+        <div class="hsl-color-example">
+            Background: hsl(200, 100%, 50%), Border: hsl(120, 100%, 25%)
+        </div>
+        <div class="hsl-colors-grid">
+            <div class="color-box hsl-red">hsl(0, 100%, 50%)</div>
+            <div class="color-box hsl-orange">hsl(30, 100%, 50%)</div>
+            <div class="color-box hsl-yellow">hsl(60, 100%, 50%)</div>
+            <div class="color-box hsl-green">hsl(120, 100%, 50%)</div>
+            <div class="color-box hsl-blue">hsl(240, 100%, 50%)</div>
+            <div class="color-box hsl-purple">hsl(300, 100%, 50%)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>HSLA Colors (with transparency)</h3>
+        <p>HSLA adds transparency to HSL. Combines intuitive color selection with opacity control!</p>
+        <div class="hsla-example">
+            Background: hsla(60, 100%, 50%, 0.3) - 30% transparent yellow
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Same Color, Different Formats</h3>
+        <p>All these boxes show the same "tomato" color using different CSS color formats:</p>
+        <div class="color-comparison">
+            <div class="color-box same-color-named">tomato</div>
+            <div class="color-box same-color-hex">#ff6347</div>
+            <div class="color-box same-color-rgb">rgb(255, 99, 71)</div>
+            <div class="color-box same-color-hsl">hsl(9, 100%, 64%)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Position: Static (default)</h3>
+        <p>Elements follow the normal document flow. Top, right, bottom, left have no effect.</p>
+        <div class="static-example">
+            Position: static - This follows normal document flow
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Position: Relative</h3>
+        <p>Element is positioned relative to its normal position. Other elements are not affected.</p>
+        <div class="relative-container">
+            <p>Normal text before the relatively positioned element.</p>
+            <div class="relative-example">
+                Position: relative<br>
+                top: 20px, left: 30px
+            </div>
+            <p>Normal text after - notice the gap where the element would normally be.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Position: Absolute</h3>
+        <p>Element is positioned relative to its nearest positioned ancestor (or viewport if none).</p>
+        <div class="absolute-container">
+            <p>This container has position: relative, creating a positioning context.</p>
+            <div class="absolute-example">
+                Absolute<br>
+                top: 10px<br>
+                right: 10px
+            </div>
+            <div class="absolute-example-2">
+                Absolute<br>
+                bottom: 10px<br>
+                left: 10px
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Position: Fixed</h3>
+        <p>Element is positioned relative to the viewport. It stays in place when scrolling!</p>
+        <div class="fixed-example">
+            Fixed Element<br>
+            (top-right corner)
+        </div>
+        <p><strong>Look at the top-right corner!</strong> The red box is fixed to the viewport and will stay there even when you scroll.</p>
+    </div>
+
+    <div class="section">
+        <h3>Position: Sticky</h3>
+        <p>Element toggles between relative and fixed based on scroll position. Scroll in the box below!</p>
+        <div class="sticky-container">
+            <div class="sticky-example">
+                🔒 Sticky Header - I stick to the top when you scroll!
+            </div>
+            <div class="sticky-content">Content Block 1 - Scroll down to see the sticky header in action!</div>
+            <div class="sticky-content">Content Block 2 - Keep scrolling...</div>
+            <div class="sticky-content">Content Block 3 - Notice how the header stays at the top?</div>
+            <div class="sticky-content">Content Block 4 - This is the power of position: sticky!</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Z-index (Stacking Order)</h3>
+        <p>Controls which elements appear in front of others. Higher values appear on top.</p>
+        <div class="z-index-container">
+            <div class="z-index-box z-index-1">z-index: 1</div>
+            <div class="z-index-box z-index-2">z-index: 2</div>
+            <div class="z-index-box z-index-3">z-index: 3</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Float: Left and Right</h3>
+        <p>Float removes elements from normal flow and pushes them to one side. Text wraps around floated elements.</p>
+        <div class="float-container">
+            <div class="float-left">Float: left</div>
+            <div class="float-right">Float: right</div>
+            <div class="float-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. This text flows around the floated elements. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris. Notice how the text wraps around both the left and right 
+                floated boxes. This is the traditional way layouts were created before Flexbox and Grid.
+            </div>
+            <div class="clear-example">
+                Clear: both - This element clears the floats and appears below them.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h4>Example</h4>
+        <div class="example-box">
+            <p>This is an <strong>example</strong> of a styled box for demonstration purposes.</p>
+        </div>
+    </div>
+
+</body>
+</html>

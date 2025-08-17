@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web Page - Box Model, Flexbox & Responsive Design</title>
+    <style>
+        /* 
+        🎯 BORDER-BOX EXPLANATION
+        By default, CSS uses "content-box" sizing where padding and border 
+        are ADDED to the width/height. This makes sizing unpredictable.
+        
+        border-box includes padding and border WITHIN the specified width/height.
+        This makes layouts much more predictable!
+        */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Apply border-box to everything */
+        }
+
+        /* 
+        📦 DEMONSTRATION: Content-box vs Border-box
+        Let's see the difference with two examples below
+        */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Header section using Flexbox */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            
+            /* 
+            🌟 FLEXBOX EXPLANATION #1: Navigation Layout
+            We use flexbox to create a navigation bar where:
+            - Logo stays on the left
+            - Navigation menu goes to the right
+            - Everything is vertically centered
+            */
+            display: flex;
+            justify-content: space-between; /* Space between logo and nav */
+            align-items: center; /* Vertically center items */
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            /* 
+            🌟 FLEXBOX EXPLANATION #2: Menu Items Layout
+            The navigation menu itself is also a flex container
+            to arrange menu items horizontally with space between them
+            */
+            display: flex;
+            gap: 2rem; /* Modern way to add space between flex items */
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main content area */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 
+        📦 BORDER-BOX DEMONSTRATION SECTION 
+        Let's show the difference between content-box and border-box
+        */
+        .box-demo {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .demo-boxes {
+            /* 
+            🌟 FLEXBOX EXPLANATION #3: Side-by-side comparison
+            Using flexbox to show two boxes side by side
+            */
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .content-box-demo {
+            /* This will be WIDER than 200px due to padding and border */
+            box-sizing: content-box;
+            width: 200px;
+            padding: 20px;
+            border: 10px solid #ff6b6b;
+            background: #ffe6e6;
+            text-align: center;
+        }
+
+        .border-box-demo {
+            /* This will be EXACTLY 200px including padding and border */
+            box-sizing: border-box;
+            width: 200px;
+            padding: 20px;
+            border: 10px solid #4ecdc4;
+            background: #e6fffe;
+            text-align: center;
+        }
+
+        /* Hero section */
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #5a6fd8;
+        }
+
+        /* Features section using Flexbox */
+        .features {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .features h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .features-grid {
+            /* 
+            🌟 FLEXBOX EXPLANATION #4: Responsive Card Grid
+            - Cards arrange horizontally by default
+            - They wrap to new lines when screen gets smaller
+            - Each card has a minimum width but can grow
+            - Equal spacing between cards
+            */
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 2rem; /* Space between cards */
+        }
+
+        .feature-card {
+            /* 
+            This is the magic of responsive flexbox:
+            - flex-grow: 1 (card can grow to fill space)
+            - flex-shrink: 1 (card can shrink if needed)
+            - flex-basis: 300px (minimum width before wrapping)
+            */
+            flex: 1 1 300px;
+            background: #f8f9fb;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1e5e9;
+        }
+
+        .feature-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Code examples styling */
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        .property { color: #3498db; }
+        .value { color: #2ecc71; }
+        .comment { color: #95a5a6; font-style: italic; }
+
+        .info-box {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        /* 
+        📱 MEDIA QUERIES EXPLANATION
+        Media queries allow us to apply different styles based on screen size.
+        This is how we make websites responsive!
+        
+        Common breakpoints:
+        - Mobile: up to 768px
+        - Tablet: 769px to 1024px  
+        - Desktop: 1025px and up
+        */
+
+        /* Tablet styles */
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-boxes {
+                flex-direction: column; /* Stack boxes vertically on tablets */
+            }
+        }
+
+        /* Mobile styles */
+        @media screen and (max-width: 768px) {
+            /* 
+            🌟 FLEXBOX + MEDIA QUERIES: Responsive Navigation
+            On mobile, we stack the navigation vertically
+            */
+            .header {
+                flex-direction: column; /* Stack logo and menu vertically */
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column; /* Stack menu items vertically */
+                gap: 0.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            /* 
+            � FLEXBOX EXPLANATION #5: Mobile-first flex direction
+            On mobile, we want cards to stack vertically for better readability
+            */
+            .features-grid {
+                flex-direction: column;
+            }
+            
+            .feature-card {
+                flex: none; /* Remove flex properties on mobile */
+            }
+            
+            /* Box demo adjustments for mobile */
+            .content-box-demo,
+            .border-box-demo {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .features {
+                padding: 2rem 1rem;
+            }
+            
+            .cta-button {
+                width: 100%; /* Full width button on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="logo">WebDev Basics</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Box Model Demonstration -->
+        <section class="box-demo">
+            <h2>📦 Understanding Box-Sizing: Border-Box vs Content-Box</h2>
+            
+            <div class="info-box">
+                <strong>🎯 Key Concept:</strong> The <code>box-sizing</code> property controls how the total width and height of an element is calculated.
+            </div>
+
+            <p><strong>Problem with default (content-box):</strong> When you set width: 200px, padding and border are ADDED to this width, making the element larger than expected.</p>
+            
+            <p><strong>Solution with border-box:</strong> Width includes padding and border, so the element is EXACTLY the size you specify.</p>
+
+            <div class="demo-boxes">
+                <div class="content-box-demo">
+                    <strong>Content-Box</strong><br>
+                    width: 200px<br>
+                    + padding: 40px<br>
+                    + border: 20px<br>
+                    = <strong>260px total!</strong>
+                </div>
+                
+                <div class="border-box-demo">
+                    <strong>Border-Box</strong><br>
+                    width: 200px<br>
+                    (includes padding & border)<br>
+                    = <strong>200px total!</strong>
+                </div>
+            </div>
+
+            <div class="code-example">
+<span class="comment">/* Apply to everything for predictable sizing */</span>
+* {
+  <span class="property">box-sizing</span>: <span class="value">border-box</span>;
+}
+
+<span class="comment">/* Now width: 200px means EXACTLY 200px */</span>
+.my-element {
+  <span class="property">width</span>: <span class="value">200px</span>;
+  <span class="property">padding</span>: <span class="value">20px</span>;
+  <span class="property">border</span>: <span class="value">10px solid blue</span>;
+  <span class="comment">/* Total width is still 200px! */</span>
+}
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Best Practice:</strong> Always use <code>* { box-sizing: border-box; }</code> at the top of your CSS. It makes layout much more predictable!
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>🌟 Modern Web Development</h1>
+            <p>Learn the essential concepts of CSS layout: Box Model, Flexbox, and Responsive Design. These three concepts form the foundation of modern web development.</p>
+            <button class="cta-button">Start Learning</button>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>🚀 What You'll Learn</h2>
+            
+            <div class="info-box">
+                <strong>🌟 Flexbox Magic Below:</strong> The cards below use <code>flex: 1 1 300px</code> which means:
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>flex-grow: 1</strong> - Cards can grow to fill space</li>
+                    <li><strong>flex-shrink: 1</strong> - Cards can shrink if needed</li>
+                    <li><strong>flex-basis: 300px</strong> - Minimum width before wrapping</li>
+                </ul>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Box Model Mastery</h3>
+                    <p>Understand how CSS calculates element sizes with margin, padding, border, and content. Learn why border-box is essential for modern layouts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Flexbox Power</h3>
+                    <p>Master the most powerful layout system in CSS. Create complex layouts with just a few lines of code. Perfect for navigation, cards, and centering.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Make your websites look great on all devices using media queries. Learn mobile-first design and how to create fluid, adaptive layouts.</p>
+                </div>
+            </div>
+
+            <div class="code-example">
+<span class="comment">/* Responsive Flexbox Grid Pattern */</span>
+.features-grid {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">flex-wrap</span>: <span class="value">wrap</span>; <span class="comment">/* Allow wrapping */</span>
+  <span class="property">gap</span>: <span class="value">2rem</span>; <span class="comment">/* Space between cards */</span>
+}
+
+.feature-card {
+  <span class="property">flex</span>: <span class="value">1 1 300px</span>; <span class="comment">/* grow shrink basis */</span>
+}
+
+<span class="comment">/* On mobile, stack vertically */</span>
+@media (max-width: 768px) {
+  .features-grid {
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+  }
+}
+            </div>
+        </section>
+
+        <!-- Media Queries Explanation -->
+        <section class="box-demo">
+            <h2>📱 Media Queries: Making It Responsive</h2>
+            
+            <div class="info-box">
+                <strong>🎯 What are Media Queries?</strong> CSS rules that only apply when certain conditions are met (like screen size, device type, orientation).
+            </div>
+
+            <p><strong>Why Responsive Design Matters:</strong></p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>📱 <strong>Mobile First:</strong> Over 50% of web traffic is mobile</li>
+                <li>💻 <strong>Multi-Device:</strong> Users switch between phone, tablet, laptop</li>
+                <li>🎯 <strong>User Experience:</strong> Content should be readable on any screen</li>
+                <li>🚀 <strong>SEO Benefits:</strong> Google favors mobile-friendly sites</li>
+            </ul>
+
+            <div class="code-example">
+<span class="comment">/* Mobile First Approach - Start with mobile styles */</span>
+.navigation {
+  <span class="property">flex-direction</span>: <span class="value">column</span>; <span class="comment">/* Stack on mobile */</span>
+}
+
+<span class="comment">/* Tablet and up */</span>
+@media screen and (min-width: 769px) {
+  .navigation {
+    <span class="property">flex-direction</span>: <span class="value">row</span>; <span class="comment">/* Horizontal on larger screens */</span>
+  }
+}
+
+<span class="comment">/* Desktop */</span>
+@media screen and (min-width: 1025px) {
+  .container {
+    <span class="property">max-width</span>: <span class="value">1200px</span>;
+  }
+}
+            </div>
+
+            <div class="warning-box">
+                <strong>📱 Try This:</strong> Resize your browser window to see how this page adapts! Notice how:
+                <ul style="margin-top: 0.5rem;">
+                    <li>Navigation stacks vertically on mobile</li>
+                    <li>Feature cards go from 3 columns to 1 column</li>
+                    <li>Text sizes adjust for readability</li>
+                    <li>Spacing reduces on smaller screens</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Real-world Example -->
+        <section class="box-demo">
+            <h2>🏗️ Putting It All Together</h2>
+            
+            <p>This entire page demonstrates all three concepts working together:</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;">
+                <div style="flex: 1 1 200px; background: #e8f4fd; padding: 1rem; border-radius: 6px;">
+                    <strong>📦 Border-Box</strong><br>
+                    Every element uses <code>box-sizing: border-box</code> for predictable sizing
+                </div>
+                
+                <div style="flex: 1 1 200px; background: #e8f5e8; padding: 1rem; border-radius: 6px;">
+                    <strong>🌟 Flexbox</strong><br>
+                    Navigation, feature grid, and this section all use flexbox layout
+                </div>
+                
+                <div style="flex: 1 1 200px; background: #fff3cd; padding: 1rem; border-radius: 6px;">
+                    <strong>📱 Media Queries</strong><br>
+                    Layout adapts to different screen sizes automatically
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>🎓 Next Steps:</strong> Practice building layouts with these concepts. Start simple and gradually add complexity. Remember: modern web development is about creating flexible, responsive designs that work everywhere!
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 WebDev Basics. Built with ❤️ using Box Model, Flexbox, and Media Queries!</p>
+    </footer>
+</body>
+</html>
