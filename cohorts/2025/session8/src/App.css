@@ -1,0 +1,19 @@
+
+/* Card styles */
+.card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2em;
+  min-width: 150px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
